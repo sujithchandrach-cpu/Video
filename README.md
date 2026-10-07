@@ -6,6 +6,7 @@ Everything is drawn in SVG/CSS, so it renders offline (fonts are the only networ
 ```
 out/aishwarya-karthik-invite.mp4   # H.264, CRF 18
 out/poster.png                     # poster frame (names scene)
+out/aishwarya-karthik-invite-whatsapp.mp4   # ~8 MB share copy (see below)
 ```
 
 ## Quick start
@@ -19,6 +20,18 @@ npm run poster     # renders out/poster.png
 
 `npm run build` is just `npx remotion render WeddingInvite out/aishwarya-karthik-invite.mp4`.
 Codec, CRF 18, pixel format and JPEG quality are set in `remotion.config.ts`.
+
+## Smaller file for WhatsApp
+
+The full-quality render is large (~138 MB). Make a ~8 MB copy from it without re-rendering:
+
+```bash
+ffmpeg -i out/aishwarya-karthik-invite.mp4 -c:v libx264 -preset slow -crf 27 -maxrate 2800k -bufsize 5600k \
+  -pix_fmt yuv420p -profile:v high -movflags +faststart -an out/aishwarya-karthik-invite-whatsapp.mp4
+```
+
+(`-an` drops audio; remove it, or add `-c:a aac -b:a 128k`, if you added music.) WhatsApp Status splits
+videos into 30-second clips, so the 45 s video will post as two parts.
 
 ## Change the text, dates and colours
 

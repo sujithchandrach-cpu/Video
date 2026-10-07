@@ -4,3 +4,4 @@ build
 *.log
 .DS_Store
 out/*.mp4
+!out/*-whatsapp.mp4
