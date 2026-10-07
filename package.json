@@ -1,0 +1,25 @@
+{
+  "name": "wedding-invite",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vertical wedding invitation video made with Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render WeddingInvite out/aishwarya-karthik-invite.mp4",
+    "poster": "remotion still WeddingInvite out/poster.png --frame=525",
+    "upgrade": "remotion upgrade",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.0",
+    "typescript": "5.8.3"
+  }
+}
